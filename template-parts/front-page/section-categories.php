@@ -126,7 +126,7 @@ if (function_exists('gi_get_cached_stats')) {
             <?php
             if (!empty($main_categories)) :
                 foreach ($main_categories as $index => $category) :
-                    if ($index >= 6) break;
+                    if ($index >= 4) break;
                     $config = $category_configs[$index] ?? array(
                         'icon' => 'fas fa-folder',
                         'gradient' => 'from-gray-800 to-black',
@@ -856,14 +856,14 @@ if (function_exists('gi_get_cached_stats')) {
 
 /* 統計情報は完全削除済み */
 
-/* メインカテゴリーグリッド - 2×3レイアウト（2列3行） */
+/* メインカテゴリーグリッド - 2×2レイアウト（2列2行） */
 .main-categories-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     gap: 30px;
     margin-bottom: 60px;
-    max-width: 800px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -1653,12 +1653,12 @@ a.recent-grant-item:hover {
 
 /* レスポンシブ */
 @media (max-width: 1024px) {
-    /* タブレット: 2×3レイアウトを維持 */
+    /* タブレット: 2×2レイアウトを維持 */
     .main-categories-grid {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
         gap: 25px;
-        max-width: 600px;
+        max-width: 500px;
     }
     
     .regions-container {
@@ -1685,10 +1685,10 @@ a.recent-grant-item:hover {
         gap: 30px;
     }
     
-    /* スマホ: 2×3レイアウトを維持しつつ、小さい画面に最適化 */
+    /* スマホ: 2×2レイアウトを最適化 */
     .main-categories-grid {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
         gap: 15px;
         margin-bottom: 30px;
         max-width: 100%;
@@ -1901,14 +1901,50 @@ a.recent-grant-item:hover {
         grid-template-rows: auto !important;
         gap: 15px;
         max-width: 100%;
+        padding: 0 5px;
     }
     
     .category-card {
-        min-height: 200px;
+        min-height: 180px;
     }
     
     .card-content {
-        padding: 20px;
+        padding: 18px;
+    }
+    
+    /* カードタイトルをスマホで読みやすく */
+    .card-title {
+        font-size: 16px !important;
+        line-height: 1.4;
+    }
+    
+    .card-description {
+        font-size: 13px !important;
+        line-height: 1.5;
+    }
+}
+
+/* さらに小さい画面（320px以下）への追加対応 */
+@media (max-width: 320px) {
+    .section-container {
+        padding: 0 10px;
+    }
+    
+    .main-categories-grid {
+        padding: 0;
+        gap: 12px;
+    }
+    
+    .category-card {
+        min-height: 160px;
+    }
+    
+    .card-content {
+        padding: 15px;
+    }
+    
+    .section-title .title-ja {
+        font-size: 22px;
     }
 }
 </style>
