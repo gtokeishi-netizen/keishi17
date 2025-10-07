@@ -856,12 +856,16 @@ if (function_exists('gi_get_cached_stats')) {
 
 /* 統計情報は完全削除済み */
 
-/* メインカテゴリーグリッド */
+/* メインカテゴリーグリッド - 2×3レイアウト（2列3行） */
 .main-categories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     gap: 30px;
     margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* カテゴリーカード */
@@ -898,12 +902,13 @@ if (function_exists('gi_get_cached_stats')) {
 
 .card-content {
     position: relative;
-    padding: 35px;
+    padding: 25px;
     background: #ffffff;
     border-radius: 18px;
     height: 100%;
     display: flex;
     flex-direction: column;
+    min-height: 280px;
 }
 
 .card-header {
@@ -1648,9 +1653,12 @@ a.recent-grant-item:hover {
 
 /* レスポンシブ */
 @media (max-width: 1024px) {
+    /* タブレット: 2×3レイアウトを維持 */
     .main-categories-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 25px;
+        max-width: 600px;
     }
     
     .regions-container {
@@ -1677,11 +1685,14 @@ a.recent-grant-item:hover {
         gap: 30px;
     }
     
-    /* スマホ: 1カラムレイアウト（元のデザイン） */
+    /* スマホ: 2×3レイアウトを維持しつつ、小さい画面に最適化 */
     .main-categories-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 15px;
         margin-bottom: 30px;
+        max-width: 100%;
+        padding: 0 10px;
     }
     
     .categories-grid {
@@ -1880,6 +1891,24 @@ a.recent-grant-item:hover {
     .region-button:active,
     .prefecture-item:active {
         opacity: 0.7;
+    }
+}
+
+/* 超小型スマートフォン（375px以下）では1列レイアウト */
+@media (max-width: 375px) {
+    .main-categories-grid {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto !important;
+        gap: 15px;
+        max-width: 100%;
+    }
+    
+    .category-card {
+        min-height: 200px;
+    }
+    
+    .card-content {
+        padding: 20px;
     }
 }
 </style>

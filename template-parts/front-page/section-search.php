@@ -687,23 +687,23 @@ $nonce = wp_create_nonce('gi_ai_search_nonce');
     transform: scaleX(1);
 }
 
-/* Main Content - Expanded Height for Better Visibility */
+/* Main Content - Set to 800px Height */
 .ai-main-content {
     display: grid;
     grid-template-columns: 45% 55%;
     gap: 32px;
     margin-bottom: 48px;
-    min-height: 1400px;
+    min-height: 800px;
 }
 
-/* AI Assistant Panel - Ultra Maximum Height for Better Chat History Visibility */
+/* AI Assistant Panel - Set to 800px Height */
 .ai-assistant-panel {
     background: #fafafa;
     border-radius: 20px;
     border: 2px solid #e0e0e0;
     display: flex;
     flex-direction: column;
-    height: 1300px;
+    height: 800px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     transition: all 0.3s ease;
 }
@@ -916,7 +916,7 @@ $nonce = wp_create_nonce('gi_ai_search_nonce');
     overflow: hidden;
 }
 
-/* Chat Messages - Ultra Maximum Height for Better Conversation History */
+/* Chat Messages - Adjusted for 800px Panel */
 .chat-messages {
     flex: 1;
     overflow-y: auto;
@@ -924,8 +924,8 @@ $nonce = wp_create_nonce('gi_ai_search_nonce');
     display: flex;
     flex-direction: column;
     gap: 12px;
-    min-height: 800px;
-    max-height: 1000px;
+    min-height: 500px;
+    max-height: 600px;
 }
 
 .message {
@@ -1073,13 +1073,13 @@ $nonce = wp_create_nonce('gi_ai_search_nonce');
     border-color: #000;
 }
 
-/* Search Results Panel - Ultra Maximum Height for Better Results Display */
+/* Search Results Panel - Set to 800px Height */
 .search-results-panel {
     background: #fafafa;
     border-radius: 20px;
     padding: 20px;
     border: 2px solid #e0e0e0;
-    height: 1300px;
+    height: 800px;
     overflow-y: auto;
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
